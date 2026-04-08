@@ -671,3 +671,126 @@ body {
 .builder-cancel:hover {
   background: var(--bg-hover);
 }
+
+/* ── Starred View ── */
+
+.starred-empty {
+  text-align: center;
+  padding: 48px 16px;
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+.starred-empty p {
+  margin-bottom: 8px;
+}
+
+.starred-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chip-remove {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.5;
+  padding: 0 2px;
+  line-height: 1;
+}
+
+.chip-remove:hover {
+  opacity: 1;
+}
+
+.starred-radar {
+  max-width: 520px;
+  margin: 24px auto;
+}
+
+/* ── Summary Table ── */
+
+.starred-table-wrap {
+  margin: 24px 0;
+  overflow-x: auto;
+}
+
+.starred-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.starred-table th {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 2px solid var(--border);
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.starred-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.table-profile-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.table-legend-row td {
+  font-size: 11px;
+  color: var(--text-dim);
+  border-bottom: none;
+  padding-top: 12px;
+}
+
+.table-legend-item {
+  margin-right: 4px;
+}
+
+/* ── Export Bar ── */
+
+.export-bar {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.export-btn {
+  padding: 10px 20px;
+  background: var(--purple);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: var(--font);
+  transition: opacity 0.12s;
+}
+
+.export-btn:hover {
+  opacity: 0.9;
+}
+
+.export-btn-secondary {
+  background: none;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+.export-btn-secondary:hover {
+  background: var(--bg-hover);
+  opacity: 1;
+}
