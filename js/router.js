@@ -3,7 +3,7 @@ import { renderBrowse } from './views/browse.js';
 import { renderCompare } from './views/compare.js';
 import { renderBuilder } from './views/builder.js';
 import { renderStarred } from './views/starred.js';
-import { loadState, getStarredCount } from './state.js';
+import { loadState, getStarredCount, setLastView, getLastView } from './state.js';
 import { loadFromURL } from './export.js';
 
 const app = document.getElementById('app');
@@ -29,6 +29,11 @@ function navigate() {
     loadFromURL(urlParams);
     window.location.replace('#/starred');
     return;
+  }
+
+  // Save last view (except for root, so returning to app goes to last real screen)
+  if (hash !== '#/' && hash !== '#') {
+    setLastView(hash);
   }
 
   for (const route of routes) {
