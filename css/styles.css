@@ -202,3 +202,93 @@ body {
   border-color: var(--purple);
   color: var(--purple);
 }
+
+/* ── Breadcrumbs ── */
+
+.breadcrumbs {
+  font-size: 13px;
+  margin-bottom: 24px;
+  color: var(--text-muted);
+}
+
+.breadcrumb-link {
+  color: var(--purple);
+  text-decoration: none;
+}
+
+.breadcrumb-link:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-current {
+  color: var(--text-secondary);
+}
+
+.breadcrumb-sep {
+  margin: 0 2px;
+  color: var(--text-dim);
+}
+
+/* ── Browse List ── */
+
+.browse-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.browse-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.browse-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text);
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.browse-row:hover {
+  background: var(--bg-hover);
+  border-color: var(--purple);
+}
+
+.browse-row-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.browse-row-name {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.browse-row-count {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.browse-row-arrow {
+  color: var(--text-dim);
+  font-size: 16px;
+}
+
+/* ── Verdict Badge ── */
+
+.verdict-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 3px 10px;
+  border-radius: 12px;
+}
