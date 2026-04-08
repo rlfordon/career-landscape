@@ -508,6 +508,48 @@ body {
   line-height: 1.5;
 }
 
+/* ── References ── */
+
+.detail-references {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.detail-references-heading {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.detail-reference-link {
+  font-size: 12px;
+  color: var(--purple);
+  text-decoration: none;
+  line-height: 1.4;
+  display: block;
+}
+
+.detail-reference-link:hover {
+  text-decoration: underline;
+}
+
+.detail-reference-source {
+  color: var(--text-muted);
+  font-size: 11px;
+  margin-left: 6px;
+}
+
+.detail-reference-source::before {
+  content: '— ';
+}
+
 /* ── Custom Profile Builder ── */
 
 .builder-screen {

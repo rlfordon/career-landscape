@@ -260,12 +260,22 @@ export function renderCompare(container, params) {
         </label>
       ` : '';
 
+      // References
+      const refs = profile.references;
+      const refsHtml = refs?.length ? `
+        <div class="detail-references">
+          <div class="detail-references-heading">Sources</div>
+          ${refs.map(r => `<a class="detail-reference-link" href="${r.url}" target="_blank" rel="noopener">${r.title}<span class="detail-reference-source">${r.source}</span></a>`).join('')}
+        </div>
+      ` : '';
+
       body.innerHTML = `
         <div class="detail-card-actions">
           ${starBtn}
           ${seniorToggle}
         </div>
         ${varsHtml}
+        ${refsHtml}
       `;
 
       card.appendChild(header);
