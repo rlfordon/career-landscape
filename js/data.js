@@ -1267,6 +1267,7 @@ export const FIRM_TREE = [
     label: 'Mid-Market (Am Law 100-200, Regional)',
     children: [
       'midmarket-commercial-lit',
+      'plaintiffs-mass-tort',
       'midmarket-business',
       'patent-prosecution',
       'estate-hnw',
