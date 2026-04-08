@@ -45,19 +45,19 @@ export const PROFILES = {
     category: 'Litigation > Civil',
     firmType: 'BigLaw',
     junior: {
-      dimensionality: 3,
+      dimensionality: 2,
       focusEffect: 2,
       demandElasticity: 1,
       selfServiceResistance: 4,
-      decisionMakerAlignment: 3,
+      decisionMakerAlignment: 2,
       verdict: 'Well Protected',
       verdictType: 'protected',
       descriptions: {
-        dimensionality: 'Even juniors touch research, drafting, discovery management, and case preparation across multiple workstreams on large matters.',
+        dimensionality: 'Your work centers on research, drafting, discovery management, and document review. Important tasks, but relatively narrow and separable on large matters with big teams.',
         focusEffect: 'Some routine tasks get automated, but the firm may need fewer juniors rather than the same juniors doing higher work. Mixed benefit.',
         demandElasticity: 'When a company faces a $2B lawsuit, it doesn\'t shop for a discount. Among the most inelastic segments of the legal market.',
         selfServiceResistance: 'No GC is defending a bet-the-company case with ChatGPT. Stakes too high, work too complex, adversarial dynamics require human judgment.',
-        decisionMakerAlignment: 'Partners want revenue, clients want to win. Neither has incentive to displace senior lawyers. But both may thin the junior layer.',
+        decisionMakerAlignment: 'Partners want revenue, clients want to win — but neither needs as many juniors when AI handles research and doc review. Both may thin the junior layer.',
       },
     },
     senior: {
@@ -92,7 +92,7 @@ export const PROFILES = {
       verdict: 'Squeezed',
       verdictType: 'squeezed',
       descriptions: {
-        dimensionality: 'Partners handle a broader range of tasks personally than BigLaw counterparts — less specialization, smaller teams. Juniors get wider exposure.',
+        dimensionality: 'You handle a broader range of tasks than BigLaw juniors — less specialization, smaller teams mean you touch research, drafting, client communication, and case strategy earlier.',
         focusEffect: 'Currently stretched across routine and substantive work. AI frees meaningful time for higher-value case strategy and client interaction.',
         demandElasticity: 'Business disputes worth $5–50M are significant but not existential. Clients consider cost when choosing counsel, creating some price sensitivity.',
         selfServiceResistance: 'Sophisticated corporate clients may handle more pre-litigation work internally — demand letters, early case assessment — using AI tools.',
@@ -285,7 +285,7 @@ export const PROFILES = {
     junior: {
       dimensionality: 4,
       focusEffect: 3,
-      demandElasticity: 3,
+      demandElasticity: 2,
       selfServiceResistance: 4,
       decisionMakerAlignment: 3,
       verdict: 'Political Variable',
@@ -293,7 +293,7 @@ export const PROFILES = {
       descriptions: {
         dimensionality: 'Case evaluation, grand jury work, plea negotiation, trial preparation, victim coordination, and courtroom advocacy — high-dimensional from the start.',
         focusEffect: 'AI handles case research and brief drafting. Meaningful reallocation to case evaluation, victim services, and courtroom preparation.',
-        demandElasticity: 'Criminal caseloads are backlogged in most jurisdictions. AI could help clear backlogs and prosecute cases that currently get declined.',
+        demandElasticity: 'Criminal caseloads are driven by crime rates, not by legal costs. Making prosecution cheaper doesn\'t create more cases — though backlogged offices could process more.',
         selfServiceResistance: 'The state has a monopoly on prosecution. No self-service concept applies.',
         decisionMakerAlignment: 'Prosecution has broad political support. Legislators are more willing to fund prosecutors than defenders. But budget pressure still exists.',
       },
@@ -369,7 +369,7 @@ export const PROFILES = {
       focusEffect: 2,
       demandElasticity: 1,
       selfServiceResistance: 4,
-      decisionMakerAlignment: 3,
+      decisionMakerAlignment: 2,
       verdict: 'Squeezed',
       verdictType: 'squeezed',
       descriptions: {
@@ -377,7 +377,7 @@ export const PROFILES = {
         focusEffect: 'Some freed time, but the firm may hire fewer juniors rather than give juniors more interesting work. The "class of 40 becomes a class of 25."',
         demandElasticity: 'Deal volume is driven by interest rates, valuations, and strategic logic — not legal costs. Cheaper lawyers don\'t create more mergers.',
         selfServiceResistance: 'No CFO runs a $10B acquisition through ChatGPT. Complex deal execution requires deep expertise across multiple practice areas.',
-        decisionMakerAlignment: 'Partners want to maintain revenue. But clients want efficiency, and both sides see reducing junior headcount as a path to lower costs without sacrificing quality.',
+        decisionMakerAlignment: 'Partners want to maintain revenue, but clients want efficiency. Both sides see reducing junior headcount as a path to lower costs. The "class of 40 becomes a class of 25."',
       },
     },
     senior: {
@@ -523,7 +523,7 @@ export const PROFILES = {
     junior: {
       dimensionality: 3,
       focusEffect: 3,
-      demandElasticity: 1,
+      demandElasticity: 2,
       selfServiceResistance: 2,
       decisionMakerAlignment: 2,
       verdict: 'Squeezed',
@@ -531,7 +531,7 @@ export const PROFILES = {
       descriptions: {
         dimensionality: 'Startup lawyers wear many hats — contracts, employment, IP, fundraising, compliance. Broader than large-corp in-house but shallower.',
         focusEffect: 'AI handling routine contracts and compliance frees real time for strategic work on fundraising, partnerships, and product launches.',
-        demandElasticity: 'Startups want to minimize legal spend. AI lets the founder\'s cousin with a JD handle more, or skip outside counsel entirely.',
+        demandElasticity: 'Startups currently skip legal work because it\'s expensive. Cheaper services would unlock some demand — but founders are also the most likely to self-serve instead of hiring.',
         selfServiceResistance: 'Startups are exactly the companies using AI tools for contracts, terms of service, and basic compliance instead of hiring a lawyer.',
         decisionMakerAlignment: 'The CEO/founder is watching every dollar. AI that reduces the need for a full-time lawyer is very attractive.',
       },
@@ -615,7 +615,7 @@ export const PROFILES = {
         focusEffect: 'Some routine tasks automated, but the specialized nature of the work means juniors still add significant value on technical analysis.',
         demandElasticity: 'IP litigation volume is driven by patent disputes and competitive dynamics. More upstream patents may mean more disputes.',
         selfServiceResistance: 'No one self-serves on patent infringement litigation. Stakes too high, technical expertise too specialized.',
-        decisionMakerAlignment: 'Similar to BigLaw defense — partners want revenue, clients want to win. Moderate alignment.',
+        decisionMakerAlignment: 'Partners want revenue from IP disputes, clients want to protect or enforce patents. But junior headcount pressure exists here too — fewer associates needed per case.',
       },
     },
     senior: {
@@ -973,7 +973,7 @@ export const PROFILES = {
       dimensionality: 3,
       focusEffect: 3,
       demandElasticity: 2,
-      selfServiceResistance: 3,
+      selfServiceResistance: 4,
       decisionMakerAlignment: 4,
       verdict: 'Well Protected',
       verdictType: 'protected',
@@ -981,7 +981,7 @@ export const PROFILES = {
         dimensionality: 'Multi-generational trust design, cross-jurisdictional tax planning, business succession structuring, and family governance counseling.',
         focusEffect: 'AI handles document drafting and tax calculations. Meaningful reallocation to client counseling and complex planning strategy.',
         demandElasticity: 'HNW estate planning demand is driven by wealth, not legal costs. Some modest expansion as practitioners serve moderately wealthy clients.',
-        selfServiceResistance: 'Clients with $10M+ estates are not using LegalZoom. The complexity and stakes demand professional counsel.',
+        selfServiceResistance: 'Clients with $10M+ estates are not using LegalZoom. The complexity, tax consequences, and family dynamics demand professional counsel.',
         decisionMakerAlignment: 'Clients choose and pay for their own estate planning. Strong alignment — they want their wealth protected.',
       },
     },
