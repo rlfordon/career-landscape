@@ -1,4 +1,4 @@
-import { PROFILES, VARIABLES, PROFILE_COLORS, VERDICT_STYLES, PRACTICE_TREE, FIRM_TREE, collectProfileIds } from '../data.js';
+import { PROFILES, VARIABLES, FRAMEWORK_SOURCE, PROFILE_COLORS, VERDICT_STYLES, PRACTICE_TREE, FIRM_TREE, collectProfileIds } from '../data.js';
 import { createRadarChart, renderLegend } from '../radar.js';
 import { isStarred, toggleStar, getStarredCount, getCustomProfile, getCustomProfiles } from '../state.js';
 
@@ -82,6 +82,36 @@ export function renderCompare(container, params) {
   tip.textContent = 'Tip: Compare 2-3 profiles at a time for clarity.';
   tip.style.display = 'none';
   container.appendChild(tip);
+
+  // "About these factors" expandable panel
+  const aboutPanel = document.createElement('div');
+  aboutPanel.className = 'about-factors';
+  aboutPanel.innerHTML = `
+    <button class="about-factors-toggle">
+      <span>About these factors</span>
+      <span class="about-factors-arrow">&#9660;</span>
+    </button>
+    <div class="about-factors-body" style="display:none">
+      <p class="about-factors-intro">This tool uses a framework adapted from the <strong>O-Ring model of AI-driven automation</strong> (Gans & Goldfarb 2026, building on Kremer 1993). When tasks are quality complements — each must be done well for the whole to succeed — automating some tasks frees the worker to concentrate on the rest, raising overall quality. When all tasks are automated, the worker is displaced entirely. Five factors determine which outcome you get:</p>
+      <div class="about-factors-grid">
+        ${VARIABLES.map(v => `
+          <div class="about-factor-item">
+            <div class="about-factor-name"><span class="about-factor-badge">${v.shortLabel}</span>${v.label}</div>
+            <p class="about-factor-desc">${v.explanation}</p>
+          </div>
+        `).join('')}
+      </div>
+      <p class="about-factors-source">Framework source: ${FRAMEWORK_SOURCE.authors}, "${FRAMEWORK_SOURCE.title}," <em>${FRAMEWORK_SOURCE.publication}</em>, ${FRAMEWORK_SOURCE.year}.</p>
+    </div>
+  `;
+  aboutPanel.querySelector('.about-factors-toggle').onclick = () => {
+    const body = aboutPanel.querySelector('.about-factors-body');
+    const arrow = aboutPanel.querySelector('.about-factors-arrow');
+    const isOpen = body.style.display !== 'none';
+    body.style.display = isOpen ? 'none' : 'block';
+    arrow.innerHTML = isOpen ? '&#9660;' : '&#9650;';
+  };
+  container.appendChild(aboutPanel);
 
   // Main layout: radar (left) + cards (right)
   const layout = document.createElement('div');
@@ -233,11 +263,10 @@ export function renderCompare(container, params) {
         const val = data[v.key];
         const pct = (val / 4) * 100;
         const desc = data.descriptions?.[v.key] || '';
-        const helpTip = v.explanation ? `<span class="detail-var-help" title="${v.explanation.replace(/"/g, '&quot;')}">?</span>` : '';
         return `
           <div class="detail-var">
             <div class="detail-var-header">
-              <span class="detail-var-label">${v.label}${helpTip}</span>
+              <span class="detail-var-label">${v.label}</span>
               <span class="detail-var-rating">${ratingWord(val)} (${val}/4)</span>
             </div>
             <div class="detail-var-bar-bg"><div class="detail-var-bar" style="width:${pct}%;background:${color}"></div></div>

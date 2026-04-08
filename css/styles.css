@@ -508,28 +508,108 @@ body {
   line-height: 1.5;
 }
 
-/* ── Variable Help Tooltips ── */
+/* ── About These Factors ── */
 
-.detail-var-help {
+.about-factors {
+  margin-bottom: 16px;
+}
+
+.about-factors-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+
+.about-factors-toggle:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+
+.about-factors-arrow {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.about-factors-body {
+  margin-top: 10px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-hover);
+}
+
+.about-factors-intro {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.about-factors-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 700px) {
+  .about-factors-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.about-factor-item {
+  padding: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.about-factor-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.about-factor-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 15px;
-  height: 15px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  background: var(--border);
-  color: var(--text-muted);
-  font-size: 10px;
-  font-weight: 600;
-  margin-left: 5px;
-  cursor: help;
-  position: relative;
-  vertical-align: middle;
+  background: var(--purple-light);
+  color: var(--purple);
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
 }
 
-.detail-var-help:hover {
-  background: var(--purple);
-  color: #fff;
+.about-factor-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.about-factors-source {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.5;
 }
 
 /* ── References ── */
