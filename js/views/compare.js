@@ -83,36 +83,6 @@ export function renderCompare(container, params) {
   tip.style.display = 'none';
   container.appendChild(tip);
 
-  // "About these factors" expandable panel
-  const aboutPanel = document.createElement('div');
-  aboutPanel.className = 'about-factors';
-  aboutPanel.innerHTML = `
-    <button class="about-factors-toggle">
-      <span>About these factors</span>
-      <span class="about-factors-arrow">&#9660;</span>
-    </button>
-    <div class="about-factors-body" style="display:none">
-      <p class="about-factors-intro">This tool uses a framework adapted from the <strong>O-Ring model of AI-driven automation</strong> (Gans & Goldfarb 2026, building on Kremer 1993). When tasks are quality complements — each must be done well for the whole to succeed — automating some tasks frees the worker to concentrate on the rest, raising overall quality. When all tasks are automated, the worker is displaced entirely. Five factors determine which outcome you get:</p>
-      <div class="about-factors-grid">
-        ${VARIABLES.map(v => `
-          <div class="about-factor-item">
-            <div class="about-factor-name"><span class="about-factor-badge">${v.shortLabel}</span>${v.label}</div>
-            <p class="about-factor-desc">${v.explanation}</p>
-          </div>
-        `).join('')}
-      </div>
-      <p class="about-factors-source">Framework source: ${FRAMEWORK_SOURCE.authors}, "${FRAMEWORK_SOURCE.title}," <em>${FRAMEWORK_SOURCE.publication}</em>, ${FRAMEWORK_SOURCE.year}.</p>
-    </div>
-  `;
-  aboutPanel.querySelector('.about-factors-toggle').onclick = () => {
-    const body = aboutPanel.querySelector('.about-factors-body');
-    const arrow = aboutPanel.querySelector('.about-factors-arrow');
-    const isOpen = body.style.display !== 'none';
-    body.style.display = isOpen ? 'none' : 'block';
-    arrow.innerHTML = isOpen ? '&#9660;' : '&#9650;';
-  };
-  container.appendChild(aboutPanel);
-
   // Main layout: radar (left) + cards (right)
   const layout = document.createElement('div');
   layout.className = 'compare-layout';
@@ -130,11 +100,40 @@ export function renderCompare(container, params) {
   const chart = createRadarChart({ size: 480 });
   radarColumn.appendChild(chart.svg);
 
-  // "Larger shape = more protected" note
+  // Chart reading hint + "About these factors" panel
   const note = document.createElement('div');
   note.className = 'radar-note';
-  note.textContent = 'Larger shape = more protected from AI displacement';
+  note.textContent = 'Each axis runs 1–4 from center to edge. Larger shape = stronger positioning against AI displacement.';
   radarColumn.appendChild(note);
+
+  const aboutPanel = document.createElement('div');
+  aboutPanel.className = 'about-factors';
+  aboutPanel.innerHTML = `
+    <button class="about-factors-toggle">
+      <span>About these factors</span>
+      <span class="about-factors-arrow">&#9660;</span>
+    </button>
+    <div class="about-factors-body" style="display:none">
+      <p class="about-factors-intro">This tool uses a framework adapted from the <strong>O-Ring model of AI-driven automation</strong> (Gans & Goldfarb 2026, building on Kremer 1993). When tasks are quality complements — each must be done well for the whole to succeed — automating some tasks frees the worker to concentrate on the rest. When all tasks are automated, the worker is displaced entirely. Five factors determine which outcome you get:</p>
+      <div class="about-factors-grid">
+        ${VARIABLES.map(v => `
+          <div class="about-factor-item">
+            <div class="about-factor-name"><span class="about-factor-badge">${v.shortLabel}</span>${v.label}</div>
+            <p class="about-factor-desc">${v.explanation}</p>
+          </div>
+        `).join('')}
+      </div>
+      <p class="about-factors-source">Framework: ${FRAMEWORK_SOURCE.authors}, "${FRAMEWORK_SOURCE.title}," <em>${FRAMEWORK_SOURCE.publication}</em>, ${FRAMEWORK_SOURCE.year}.</p>
+    </div>
+  `;
+  aboutPanel.querySelector('.about-factors-toggle').onclick = () => {
+    const body = aboutPanel.querySelector('.about-factors-body');
+    const arrow = aboutPanel.querySelector('.about-factors-arrow');
+    const isOpen = body.style.display !== 'none';
+    body.style.display = isOpen ? 'none' : 'block';
+    arrow.innerHTML = isOpen ? '&#9660;' : '&#9650;';
+  };
+  radarColumn.appendChild(aboutPanel);
 
   // Legend container
   const legendContainer = document.createElement('div');
