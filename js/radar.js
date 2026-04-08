@@ -64,6 +64,10 @@ export function createRadarChart({ size = 480 } = {}) {
 
     const variable = VARIABLES[i];
 
+    // Label group (for shared tooltip)
+    const labelGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    labelGroup.style.cursor = variable.explanation ? 'help' : 'default';
+
     // Main label
     const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     text.setAttribute('x', lx);
@@ -74,7 +78,7 @@ export function createRadarChart({ size = 480 } = {}) {
     text.setAttribute('font-weight', '600');
     text.setAttribute('fill', '#444');
     text.textContent = variable.label;
-    labelsGroup.appendChild(text);
+    labelGroup.appendChild(text);
 
     // Sublabel
     const sub = document.createElementNS('http://www.w3.org/2000/svg', 'text');
@@ -85,7 +89,16 @@ export function createRadarChart({ size = 480 } = {}) {
     sub.setAttribute('font-size', '9.5');
     sub.setAttribute('fill', '#aaa');
     sub.textContent = variable.sublabel;
-    labelsGroup.appendChild(sub);
+    labelGroup.appendChild(sub);
+
+    // Tooltip
+    if (variable.explanation) {
+      const tip = document.createElementNS('http://www.w3.org/2000/svg', 'title');
+      tip.textContent = variable.explanation;
+      labelGroup.appendChild(tip);
+    }
+
+    labelsGroup.appendChild(labelGroup);
   }
 
   // Track active shapes for highlight/dim

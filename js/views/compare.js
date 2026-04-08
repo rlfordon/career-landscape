@@ -233,10 +233,11 @@ export function renderCompare(container, params) {
         const val = data[v.key];
         const pct = (val / 4) * 100;
         const desc = data.descriptions?.[v.key] || '';
+        const helpTip = v.explanation ? `<span class="detail-var-help" title="${v.explanation.replace(/"/g, '&quot;')}">?</span>` : '';
         return `
           <div class="detail-var">
             <div class="detail-var-header">
-              <span class="detail-var-label">${v.label}</span>
+              <span class="detail-var-label">${v.label}${helpTip}</span>
               <span class="detail-var-rating">${ratingWord(val)} (${val}/4)</span>
             </div>
             <div class="detail-var-bar-bg"><div class="detail-var-bar" style="width:${pct}%;background:${color}"></div></div>

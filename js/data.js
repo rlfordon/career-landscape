@@ -11,13 +11,52 @@ export const VERDICT_STYLES = {
   political:  { bg: '#e0f2fe', color: '#0e7490', label: 'Political Variable' },
 };
 
+// Source article for the analytical framework
+export const FRAMEWORK_SOURCE = {
+  title: 'How Will AI-Driven Automation Actually Affect Jobs?',
+  authors: 'Alex Imas & Soumitra Shukla',
+  publication: 'Ghosts of Electricity / ZeroHedge',
+  year: 2026,
+  description: 'Extends the O-Ring model of economic development (Kremer 1993) to AI automation. When tasks are quality complements — each must be done well for the whole to succeed — output is multiplicative, not additive. Automating some tasks frees the worker to concentrate on the rest, raising quality. But when all tasks are automated, the worker is displaced entirely.',
+};
+
 // Variable metadata — used by radar chart axis labels and builder
 export const VARIABLES = [
-  { key: 'dimensionality',        label: 'Dimensionality',          shortLabel: 'D', sublabel: 'Task complexity' },
-  { key: 'focusEffect',           label: 'Focus Effect',            shortLabel: 'F', sublabel: 'Benefit from automation' },
-  { key: 'demandElasticity',      label: 'Demand Elasticity',       shortLabel: 'E', sublabel: 'Market expansion' },
-  { key: 'selfServiceResistance', label: 'Self-Service Resistance', shortLabel: 'R', sublabel: 'Client bypass risk (inv.)' },
-  { key: 'decisionMakerAlignment',label: 'Decision-Maker Alignment',shortLabel: 'A', sublabel: 'Hiring incentives' },
+  {
+    key: 'dimensionality',
+    label: 'Dimensionality',
+    shortLabel: 'D',
+    sublabel: 'Task complexity',
+    explanation: 'How many complementary tasks make up the role. When tasks are multiplicatively linked (each must be done well for the whole to succeed), automating some frees the worker to concentrate on the rest. When a job has only one or two core tasks, automating them eliminates the position entirely. High is protective.',
+  },
+  {
+    key: 'focusEffect',
+    label: 'Focus Effect',
+    shortLabel: 'F',
+    sublabel: 'Benefit from automation',
+    explanation: 'How much you specifically benefit when AI handles routine tasks. Dimensionality is a structural property of the role; focus effect is about whether the freed time flows to you as higher-quality work, or whether the firm simply needs fewer of you. High means AI makes you more valuable; low means it makes you replaceable.',
+  },
+  {
+    key: 'demandElasticity',
+    label: 'Demand Elasticity',
+    shortLabel: 'E',
+    sublabel: 'Market expansion',
+    explanation: 'Whether cheaper legal services unlock more demand. If clients buy substantially more legal work when prices fall, productivity gains translate into more hiring even as each lawyer becomes more efficient (the Jevons paradox). If demand is fixed, the same output gets produced with fewer people. High means the market expands.',
+  },
+  {
+    key: 'selfServiceResistance',
+    label: 'Self-Service Resistance',
+    shortLabel: 'R',
+    sublabel: 'Client bypass risk (inv.)',
+    explanation: 'Whether the client bypasses lawyers entirely using generally available AI tools. This risk is highest where the client is sophisticated enough to evaluate legal output themselves and the cost of error is manageable. A distinct channel of displacement from automation within the firm. High means clients still need you.',
+  },
+  {
+    key: 'decisionMakerAlignment',
+    label: 'Decision-Maker Alignment',
+    shortLabel: 'A',
+    sublabel: 'Hiring incentives',
+    explanation: 'Who decides whether to hire, automate, or cut — and what they are optimizing for. In a firm, partners weigh revenue against cost. In a corporation, the CFO weighs the legal department against the budget. In government, legislators weigh appropriations against ideology. The same AI capability produces different outcomes depending on who controls headcount. High means the decision-maker wants to keep you.',
+  },
 ];
 
 // Rating label helpers
