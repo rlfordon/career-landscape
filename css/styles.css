@@ -1,0 +1,71 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --purple: #7c3aed;
+  --purple-light: #ede9fe;
+  --blue: #2563eb;
+  --amber: #d97706;
+  --red: #dc2626;
+  --green: #059669;
+  --teal: #0891b2;
+  --text: #1a1a1a;
+  --text-secondary: #666;
+  --text-muted: #888;
+  --text-dim: #aaa;
+  --border: #e5e7eb;
+  --bg: #ffffff;
+  --bg-hover: #f9fafb;
+  --radius: 10px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+#top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 100;
+}
+
+.nav-logo {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--purple);
+  text-decoration: none;
+}
+
+.starred-nav-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--text);
+  transition: background 0.15s;
+}
+
+.starred-nav-btn:hover {
+  background: var(--bg-hover);
+}
+
+#app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px;
+}
