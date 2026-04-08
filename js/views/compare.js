@@ -43,7 +43,7 @@ export function renderCompare(container, params) {
   });
 
   // State for this view
-  const activeProfiles = new Set(profileIds.slice(0, 3));
+  const activeProfiles = new Set(profileIds.slice(0, 3)); // Start with first 3 visible
 
   // Auto-activate custom profiles
   Object.keys(customProfiles).forEach(id => {
@@ -53,7 +53,7 @@ export function renderCompare(container, params) {
   let highlightedId = null;
   let colorAssignment = {};
 
-  // ── Build the view ──
+  // Build the view
   container.innerHTML = '';
 
   // Breadcrumbs
@@ -71,7 +71,7 @@ export function renderCompare(container, params) {
   title.textContent = sectionLabel;
   container.appendChild(title);
 
-  // Chip bar (profile selectors)
+  // Chip bar
   const chipBar = document.createElement('div');
   chipBar.className = 'chip-bar';
   container.appendChild(chipBar);
@@ -83,66 +83,61 @@ export function renderCompare(container, params) {
   tip.style.display = 'none';
   container.appendChild(tip);
 
-  // ── Chart section (hero) ──
-  const chartSection = document.createElement('div');
-  chartSection.className = 'chart-section';
-  container.appendChild(chartSection);
+  // Main layout: radar (left) + cards (right)
+  const layout = document.createElement('div');
+  layout.className = 'compare-layout';
+  container.appendChild(layout);
 
+  const radarColumn = document.createElement('div');
+  radarColumn.className = 'compare-radar-col';
+  layout.appendChild(radarColumn);
+
+  const cardsColumn = document.createElement('div');
+  cardsColumn.className = 'compare-cards-col';
+  layout.appendChild(cardsColumn);
+
+  // Create radar chart
   const chart = createRadarChart({ size: 480 });
-  chartSection.appendChild(chart.svg);
+  radarColumn.appendChild(chart.svg);
 
-  // Legend sits right under the chart
-  const legendContainer = document.createElement('div');
-  chartSection.appendChild(legendContainer);
+  // Chart reading hint + "About these factors" panel
+  const note = document.createElement('div');
+  note.className = 'radar-note';
+  note.textContent = 'Each axis runs 1–4 from center to edge. Larger shape = stronger positioning against AI displacement.';
+  radarColumn.appendChild(note);
 
-  // Chart reading hint + about link
-  const chartFooter = document.createElement('div');
-  chartFooter.className = 'chart-footer';
-  chartFooter.innerHTML = `
-    <span class="chart-hint">Each axis runs 1–4 from center to edge. Larger shape = stronger positioning against AI displacement.</span>
-    <button class="about-link">About these factors</button>
-  `;
-  chartSection.appendChild(chartFooter);
-
-  // About panel (hidden by default, expands in place)
   const aboutPanel = document.createElement('div');
-  aboutPanel.className = 'about-panel';
-  aboutPanel.style.display = 'none';
+  aboutPanel.className = 'about-factors';
   aboutPanel.innerHTML = `
-    <div class="about-panel-inner">
-      <div class="about-panel-header">
-        <h3 class="about-panel-title">The O-Ring Framework</h3>
-        <button class="about-panel-close">&times;</button>
-      </div>
-      <p class="about-panel-intro">When tasks are quality complements — each must be done well for the whole to succeed — automating some frees the worker to concentrate on the rest. When all tasks are automated, the worker is displaced entirely. Five factors determine which outcome you get:</p>
-      <div class="about-panel-grid">
+    <button class="about-factors-toggle">
+      <span>About these factors</span>
+      <span class="about-factors-arrow">&#9660;</span>
+    </button>
+    <div class="about-factors-body" style="display:none">
+      <p class="about-factors-intro">This tool uses a framework adapted from the <strong>O-Ring model of AI-driven automation</strong> (Gans & Goldfarb 2026, building on Kremer 1993). When tasks are quality complements — each must be done well for the whole to succeed — automating some tasks frees the worker to concentrate on the rest. When all tasks are automated, the worker is displaced entirely. Five factors determine which outcome you get:</p>
+      <div class="about-factors-grid">
         ${VARIABLES.map(v => `
-          <div class="about-panel-factor">
-            <span class="about-panel-badge">${v.shortLabel}</span>
-            <div>
-              <strong>${v.label}</strong>
-              <p>${v.explanation}</p>
-            </div>
+          <div class="about-factor-item">
+            <div class="about-factor-name"><span class="about-factor-badge">${v.shortLabel}</span>${v.label}</div>
+            <p class="about-factor-desc">${v.explanation}</p>
           </div>
         `).join('')}
       </div>
-      <p class="about-panel-source">Source: ${FRAMEWORK_SOURCE.authors}, "${FRAMEWORK_SOURCE.title}," <em>${FRAMEWORK_SOURCE.publication}</em>, ${FRAMEWORK_SOURCE.year}.</p>
+      <p class="about-factors-source">Framework: ${FRAMEWORK_SOURCE.authors}, "${FRAMEWORK_SOURCE.title}," <em>${FRAMEWORK_SOURCE.publication}</em>, ${FRAMEWORK_SOURCE.year}.</p>
     </div>
   `;
-  chartSection.appendChild(aboutPanel);
-
-  // Wire about toggle
-  chartFooter.querySelector('.about-link').onclick = () => {
-    aboutPanel.style.display = 'block';
+  aboutPanel.querySelector('.about-factors-toggle').onclick = () => {
+    const body = aboutPanel.querySelector('.about-factors-body');
+    const arrow = aboutPanel.querySelector('.about-factors-arrow');
+    const isOpen = body.style.display !== 'none';
+    body.style.display = isOpen ? 'none' : 'block';
+    arrow.innerHTML = isOpen ? '&#9660;' : '&#9650;';
   };
-  aboutPanel.querySelector('.about-panel-close').onclick = () => {
-    aboutPanel.style.display = 'none';
-  };
+  radarColumn.appendChild(aboutPanel);
 
-  // ── Detail cards section ──
-  const cardsSection = document.createElement('div');
-  cardsSection.className = 'cards-section';
-  container.appendChild(cardsSection);
+  // Legend container
+  const legendContainer = document.createElement('div');
+  radarColumn.appendChild(legendContainer);
 
   // ── Render functions ──
 
@@ -151,6 +146,7 @@ export function renderCompare(container, params) {
     let slot = 0;
     profileIds.forEach(id => {
       if (activeProfiles.has(id)) {
+        // Custom profiles get green
         if (id.startsWith('custom-')) {
           colorAssignment[id] = '#059669';
         } else {
@@ -188,6 +184,7 @@ export function renderCompare(container, params) {
     customChip.className = 'chip chip-custom';
     customChip.textContent = '+ Custom';
     customChip.onclick = () => {
+      // Pass current compare path so builder can return here
       window.location.hash = `#/builder/${encodeURIComponent(fullPath)}`;
     };
     chipBar.appendChild(customChip);
@@ -225,11 +222,12 @@ export function renderCompare(container, params) {
       renderCards();
     });
 
+    // Tip
     tip.style.display = activeProfiles.size >= 4 ? 'block' : 'none';
   }
 
   function renderCards() {
-    cardsSection.innerHTML = '';
+    cardsColumn.innerHTML = '';
     [...activeProfiles].forEach(id => {
       const profile = PROFILES[id] || getCustomProfile(id);
       if (!profile) return;
@@ -240,9 +238,9 @@ export function renderCompare(container, params) {
 
       const card = document.createElement('div');
       card.className = `detail-card ${isHighlighted ? 'detail-card-highlighted' : ''}`;
-      card.style.borderTopColor = color;
+      card.style.borderLeftColor = color;
 
-      // Header (always visible)
+      // Collapsed header
       const header = document.createElement('div');
       header.className = 'detail-card-header';
       header.innerHTML = `
@@ -254,7 +252,7 @@ export function renderCompare(container, params) {
         <span class="detail-card-toggle">&#9660;</span>
       `;
 
-      // Body (collapsed by default)
+      // Expanded body
       const body = document.createElement('div');
       body.className = 'detail-card-body';
       body.style.display = 'none';
@@ -328,10 +326,11 @@ export function renderCompare(container, params) {
           highlightedId = id;
           chart.highlight(id);
         }
+        // Update all cards' visual state
         updateCardHighlights();
       };
 
-      cardsSection.appendChild(card);
+      cardsColumn.appendChild(card);
 
       // Wire up star button
       body.querySelector('.star-btn')?.addEventListener('click', (e) => {
@@ -352,7 +351,7 @@ export function renderCompare(container, params) {
   }
 
   function updateCardHighlights() {
-    cardsSection.querySelectorAll('.detail-card').forEach(card => {
+    cardsColumn.querySelectorAll('.detail-card').forEach(card => {
       const id = card.querySelector('.star-btn')?.dataset.id;
       if (highlightedId && id !== highlightedId) {
         card.classList.remove('detail-card-highlighted');
