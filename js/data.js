@@ -93,7 +93,7 @@ export const PROFILES = {
       verdictType: 'squeezed',
       descriptions: {
         dimensionality: 'You handle a broader range of tasks than BigLaw juniors — less specialization, smaller teams mean you touch research, drafting, client communication, and case strategy earlier.',
-        focusEffect: 'Currently stretched across routine and substantive work. AI frees meaningful time for higher-value case strategy and client interaction.',
+        focusEffect: 'You\'re genuinely stretched across routine and substantive work, and the tasks reinforce each other — the junior who handled discovery writes the better brief. AI lets you concentrate on the linked tasks where quality compounds. But whether YOU benefit or the firm just needs fewer of you depends on institutional survival.',
         demandElasticity: 'Business disputes worth $5–50M are significant but not existential. Clients consider cost when choosing counsel, creating some price sensitivity.',
         selfServiceResistance: 'Sophisticated corporate clients may handle more pre-litigation work internally — demand letters, early case assessment — using AI tools.',
         decisionMakerAlignment: 'Squeezed from both sides: clients consolidating with larger firms that have better AI, and boutiques with lower overhead undercutting on price.',
@@ -132,7 +132,7 @@ export const PROFILES = {
       verdictType: 'growth',
       descriptions: {
         dimensionality: 'Junior roles center on intake screening, case management, and document processing — important but relatively narrow task sets.',
-        focusEffect: 'AI-powered intake frees time to work on case development and client communication. Real upward reallocation.',
+        focusEffect: 'Intake screening and case development are moderately complementary — screening builds judgment about what makes a strong claim. But the firm captures the focus effect as growth: AI means more cases screened and accepted, not individual lawyers doing higher-quality work on the same caseload.',
         demandElasticity: 'Major firms maintain inventories of 50,000-200,000+ claims and screen 100,000+ potential claimants annually. AI-powered intake lets them identify meritorious claims that were previously missed — the Jevons paradox in action.',
         selfServiceResistance: 'Plaintiffs are injured individuals. Nobody prosecutes their own pharmaceutical litigation.',
         decisionMakerAlignment: 'Partners are entrepreneurs who capture the full upside of efficiency gains. No client is demanding fee reductions — fees are contingent on recovery.',
@@ -171,7 +171,7 @@ export const PROFILES = {
       verdictType: 'multiplier',
       descriptions: {
         dimensionality: 'A solo PI lawyer does everything — intake, investigation, medical records, demand letters, negotiation, trial. Deeply intertwined tasks.',
-        focusEffect: 'Currently drowning in paperwork. AI handling medical record summaries, demand letter drafts, and case research frees enormous time for client work and negotiation.',
+        focusEffect: 'You ARE the firm, so you capture 100% of the focus effect. Your tasks are tightly O-Ring — the lawyer who reviewed the medical records writes the better demand letter and negotiates from a stronger position. AI handles the paperwork; you concentrate on the linked bundle of negotiation, client work, and trial prep where quality compounds.',
         demandElasticity: 'PI demand is driven by accidents, not legal costs. But lawyers who handle more cases profitably may advertise more aggressively and capture new clients.',
         selfServiceResistance: 'Injured individuals won\'t negotiate with insurance companies using ChatGPT. The power asymmetry is too great and stakes too personal.',
         decisionMakerAlignment: 'You are the decision-maker. No one is cutting your headcount. The only question is whether you adopt AI before your competitor does.',
@@ -253,7 +253,7 @@ export const PROFILES = {
       verdictType: 'political',
       descriptions: {
         dimensionality: 'Investigation, legal research, motion practice, plea negotiation, client counseling with vulnerable populations, jury selection, trial advocacy — all from day one.',
-        focusEffect: 'Transformative. The ABA recommends a max of 150 felonies per attorney per year; actual caseloads routinely hit 400-700+. AI handling research and brief drafting would free enormous time for client interaction and trial prep.',
+        focusEffect: 'The task complementarity is identical to private defense — but the 400-700+ caseloads (vs. ABA-recommended 150) mean defenders can\'t actually do the full O-Ring bundle. AI could let them concentrate on each case the way the model predicts. But the focus effect gets captured by the political system: legislators use AI to justify flat budgets, not better representation.',
         demandElasticity: 'The unmet demand for adequate public defense is essentially infinite. AI could let each defender provide dramatically better representation.',
         selfServiceResistance: 'Constitutional right to counsel. Clients cannot afford private counsel — that\'s why they\'re in the system. Zero self-service path.',
         decisionMakerAlignment: 'State legislators and county commissioners are often hostile to public defense funding. AI provides political cover for budget cuts that were ideologically motivated before AI existed.',
@@ -292,7 +292,7 @@ export const PROFILES = {
       verdictType: 'political',
       descriptions: {
         dimensionality: 'Case evaluation, grand jury work, plea negotiation, trial preparation, victim coordination, and courtroom advocacy — high-dimensional from the start.',
-        focusEffect: 'AI handles case research and brief drafting. Meaningful reallocation to case evaluation, victim services, and courtroom preparation.',
+        focusEffect: 'Most offices assign cases end-to-end — the ADA who evaluated the evidence negotiates the plea and tries the case. Tasks are genuinely complementary. AI frees time from research and drafting to concentrate on the linked bundle. But the focus effect translates to clearing backlogs, not necessarily better resourced offices.',
         demandElasticity: 'Criminal caseloads are driven by crime rates, not by legal costs. Making prosecution cheaper doesn\'t create more cases — though backlogged offices could process more.',
         selfServiceResistance: 'The state has a monopoly on prosecution. No self-service concept applies.',
         decisionMakerAlignment: 'Prosecution has broad political support. Legislators are more willing to fund prosecutors than defenders. But budget pressure still exists.',
@@ -331,7 +331,7 @@ export const PROFILES = {
       verdictType: 'protected',
       descriptions: {
         dimensionality: 'Investigation, legal research, motion practice, plea negotiation, client counseling, jury selection, trial advocacy. Missing any one task can mean conviction vs. acquittal.',
-        focusEffect: 'AI handles research and brief drafting; lawyers shift time to strategy, client interaction, and courtroom work. Meaningful reallocation.',
+        focusEffect: 'The most tightly O-Ring role in the set. The person in court needs to have done the research — trial advocacy requires real-time application of case knowledge. Client counseling requires knowing the legal strategy. AI handles research and drafting; you concentrate on the linked bundle where everything compounds.',
         demandElasticity: 'Criminal charges are not price-sensitive. You don\'t hire a defense lawyer because it\'s cheap — you hire one because you\'re charged with a crime.',
         selfServiceResistance: 'Constitutional rights, catastrophic consequences of error, and the power asymmetry between individual and state all prevent self-service.',
         decisionMakerAlignment: 'Clients choose their own lawyer and are fully invested in the outcome. The lawyer-client alignment is as strong as it gets.',
@@ -413,7 +413,7 @@ export const PROFILES = {
       verdictType: 'squeezed',
       descriptions: {
         dimensionality: 'Mid-market juniors handle broader work than BigLaw peers — contract drafting, entity management, basic employment issues — which is protective.',
-        focusEffect: 'Currently doing routine tasks personally that AI could handle. Real opportunity to shift to higher-value advisory work.',
+        focusEffect: 'Understanding the client\'s business makes the contract drafting better, and vice versa — moderate O-Ring complementarity. AI frees you from routine drafting to concentrate on advisory work. But the freed time may not save your job if clients self-serve on platforms or the firm captures the efficiency.',
         demandElasticity: 'At smaller deal sizes ($10-500M), legal costs are a meaningful percentage. Lower fees could unlock marginal transactions.',
         selfServiceResistance: 'Companies doing smaller deals are increasingly using AI-assisted platforms for contract review, cap table management, and basic governance.',
         decisionMakerAlignment: 'Facing pressure from BigLaw (better AI capabilities, brand premium) and boutiques (lower overhead, more nimble). Must differentiate or decline.',
@@ -452,7 +452,7 @@ export const PROFILES = {
       verdictType: 'multiplier',
       descriptions: {
         dimensionality: 'Solo business lawyers draft contracts, advise on entity formation, handle employment issues, manage compliance, and counsel on everything from leases to partnership disputes.',
-        focusEffect: 'Transformative. Currently spending most time on routine tasks AI could handle — contract drafting, basic filings, standard compliance reviews.',
+        focusEffect: 'You capture 100% of the focus effect as a solo. Currently spending most time on routine tasks AI could handle. The remaining advisory and counseling work is genuinely O-Ring — understanding the client\'s business makes every piece of advice better. But self-service risk (rating 1) means some clients won\'t need you at all.',
         demandElasticity: 'Small business clients are price-sensitive but need legal help they currently can\'t afford. Some expansion at lower price points.',
         selfServiceResistance: 'Small business clients are the most likely to self-serve using LegalZoom, ChatGPT, and similar tools. They already are. Routine work is being automated away.',
         decisionMakerAlignment: 'You control your own practice. The risk is market competition, not a boss cutting your job.',
@@ -530,7 +530,7 @@ export const PROFILES = {
       verdictType: 'squeezed',
       descriptions: {
         dimensionality: 'Startup lawyers wear many hats — contracts, employment, IP, fundraising, compliance. Broader than large-corp in-house but shallower.',
-        focusEffect: 'AI handling routine contracts and compliance frees real time for strategic work on fundraising, partnerships, and product launches.',
+        focusEffect: 'The tasks are moderately complementary — understanding the fundraising shapes how you draft the IP assignment, and vice versa. AI frees you from routine contracts to concentrate on strategic work. But the startup captures the efficiency: if one lawyer plus AI can do what two lawyers did, the startup won\'t hire a second.',
         demandElasticity: 'Startups currently skip legal work because it\'s expensive. Cheaper services would unlock some demand — but founders are also the most likely to self-serve instead of hiring.',
         selfServiceResistance: 'Startups are exactly the companies using AI tools for contracts, terms of service, and basic compliance instead of hiring a lawyer.',
         decisionMakerAlignment: 'The CEO/founder is watching every dollar. AI that reduces the need for a full-time lawyer is very attractive.',
@@ -573,7 +573,7 @@ export const PROFILES = {
       verdictType: 'growth',
       descriptions: {
         dimensionality: 'Combines technical analysis, claim drafting, prior art searching, and Patent Office interaction. Each step builds on the others.',
-        focusEffect: 'AI handles prior art searches and initial drafts. Meaningful reallocation to claim strategy and prosecution argument development.',
+        focusEffect: 'Claim drafting, prior art, and PTO interaction are a genuinely complementary chain — the person who understood the invention writes better office action responses. Context transfer cost is high because the technical understanding is tacit. AI handles searches and initial drafts; you concentrate where tacit knowledge compounds.',
         demandElasticity: 'A utility patent costs $10,000-$25,000 through issuance. Roughly 24% of startups with patentable inventions don\'t file due to cost. Cheaper AI-assisted filing could unlock massive latent demand.',
         selfServiceResistance: 'Patent prosecution requires technical expertise and PTO procedure knowledge. But tools like PatSnap, IPRally, and Specifio are improving at prior art searching and initial claim drafting.',
         decisionMakerAlignment: 'Clients want patents. Firms want to file patents. Incentives are aligned toward more, not less, patent work.',
@@ -694,7 +694,7 @@ export const PROFILES = {
       verdictType: 'growth',
       descriptions: {
         dimensionality: 'Requires understanding client operations, mapping regulatory frameworks, monitoring changes, advising on implementation, and managing regulatory relationships.',
-        focusEffect: 'AI handles regulatory monitoring and standard compliance checklists. Meaningful reallocation to client-specific advisory and novel regulatory questions.',
+        focusEffect: 'Monitoring and advisory are tightly linked — you can\'t flag what matters without knowing the client\'s operations, and you can\'t advise without knowing the regulatory landscape. AI handles monitoring and standard checklists; you concentrate on the novel questions where both kinds of knowledge intersect.',
         demandElasticity: 'U.S. agencies publish 3,000-4,000 final rules per year. GDPR fines have exceeded EUR 4.2B cumulatively. The EU AI Act, SEC climate rules, and state AI governance laws are all creating new compliance demand. Cheaper services could bring SMEs into the market.',
         selfServiceResistance: 'For basic compliance (posting notices, standard policies), AI tools can serve clients directly. For substantive strategy, self-service risk is low.',
         decisionMakerAlignment: 'Both firms and clients benefit from compliance. Non-compliance consequences (fines, enforcement) create natural demand.',
@@ -815,7 +815,7 @@ export const PROFILES = {
       verdictType: 'protected',
       descriptions: {
         dimensionality: 'Client counseling, negotiation, mediation, court appearances, financial analysis, and coordination with experts. Emotional and interpersonal work deeply complementary with technical.',
-        focusEffect: 'AI handles financial calculations, document drafting, and case law research. Meaningful reallocation to client management, negotiation, and courtroom work.',
+        focusEffect: 'The emotional and technical work are multiplicatively linked — understanding the financial picture shapes how you counsel the client, and knowing the client\'s emotional state shapes what you fight over. AI handles calculations and drafting; you concentrate where human judgment compounds across both dimensions.',
         demandElasticity: 'Divorces happen when marriages fail, not when lawyers get cheaper. Some expansion as cost reductions bring contested matters that currently settle badly.',
         selfServiceResistance: 'Approximately 72% of family law cases involve at least one self-represented party (over 80% in California). But that\'s mostly uncontested matters — for contested custody and high-asset divorce, people want a human advocate.',
         decisionMakerAlignment: 'Clients in family disputes are fully invested in their lawyer. Direct client relationship with strong alignment.',
@@ -897,7 +897,7 @@ export const PROFILES = {
       verdictType: 'protected',
       descriptions: {
         dimensionality: 'Legal judgment, client counseling with vulnerable populations, form preparation, case strategy, and courtroom advocacy (for removal defense).',
-        focusEffect: 'Junior immigration lawyers spend 60-70% of billable time on forms and document assembly. AI handling that work frees real time for client counseling and case strategy — where representation quality matters most.',
+        focusEffect: 'The practice bifurcates. For complex cases (asylum, deportation), understanding the client\'s story and the legal strategy are genuinely O-Ring linked — the focus effect is real. For routine filings (H-1B, green cards), the tasks are low-dimensional and separable. Juniors currently spend 60-70% of time on forms. AI frees you for the complex work where quality compounds.',
         demandElasticity: 'Roughly 67% of immigrants in removal proceedings lack representation (86% of detained immigrants). Immigrants with counsel are 5x more likely to win. Lower costs could meaningfully expand who gets a lawyer.',
         selfServiceResistance: 'For complex cases (asylum, deportation defense), stakes are too high and the system too opaque. Routine H-1B filings face more self-service risk.',
         decisionMakerAlignment: 'Clients choose and pay for their own lawyer. Strong alignment. The risk is market competition, not hostile decision-makers.',
@@ -1061,7 +1061,7 @@ export const PROFILES = {
       verdictType: 'squeezed',
       descriptions: {
         dimensionality: 'Researching motions, drafting EEOC position statements, reviewing personnel files, preparing discovery, and drafting handbooks and separation agreements. Each matter blends litigation with counseling.',
-        focusEffect: 'AI can draft EEOC position statements, generate handbooks from templates, and handle jurisdiction-specific research. Freed time shifts to strategic termination advice, mediations, and workplace investigations.',
+        focusEffect: 'Defending termination cases and advising on terminations reinforce each other — moderate O-Ring complementarity. But the tasks are more separable than criminal defense; you could split handbook drafting from litigation without catastrophic quality loss. AI handles position statements and handbooks; the strategic advisory work benefits, but HR platforms are eroding the routine side independently.',
         demandElasticity: 'Proactive counseling (handbook audits, manager training, compliance assessments) is significantly cost-suppressed. Companies skip it because it\'s expensive, not because they don\'t need it.',
         selfServiceResistance: 'HR platforms like Mineral, Rippling, and Gusto already provide AI-assisted handbook generation and compliance alerts. Routine policy work is migrating to platforms. Litigation defense still requires counsel.',
         decisionMakerAlignment: 'The CHRO or GC engages outside counsel reactively (EEOC charge arrives) and selectively for proactive work. Employment defense is necessary but tightly budget-managed — not discretionary, but not strategic either.',
@@ -1100,7 +1100,7 @@ export const PROFILES = {
       verdictType: 'growth',
       descriptions: {
         dimensionality: 'Screening potential cases at intake, drafting EEOC charges, researching statutes and deadlines, preparing demand letters, and managing smaller individual cases through mediation.',
-        focusEffect: 'AI accelerates case screening and drafts charges and complaints. On contingency, faster screening means more cases evaluated, more cases accepted — the same Jevons dynamic as mass tort.',
+        focusEffect: 'Screening and litigation are moderately complementary — the person who screens cases develops judgment about which claims are strong. AI handles intake and drafting; you concentrate on case development and negotiation. On contingency, the firm captures the focus effect as profit (more cases at lower cost per case), not as higher individual wages.',
         demandElasticity: 'An estimated 60-90% of workers experiencing discrimination or wage theft never file a formal charge. Workers lose ~$50B/year to wage theft; the DOL recovers ~$300M. Massive unmet need.',
         selfServiceResistance: 'Employees can file EEOC charges pro se (and many do), but outcomes are significantly better with representation. Tools like DoNotPay have tried automating demand letters with mixed results.',
         decisionMakerAlignment: 'Contingency fees (33-40%) mean AI that reduces hours per case doesn\'t reduce revenue — it increases profit margin. The firm decides its own tech investment with no client pushback.',
@@ -1139,7 +1139,7 @@ export const PROFILES = {
       verdictType: 'squeezed',
       descriptions: {
         dimensionality: 'Advising HR on hiring/firing decisions, drafting policies, managing outside counsel for litigation, overseeing workplace investigations, and handling accommodation and leave requests.',
-        focusEffect: 'AI handles policy drafting, first-pass investigation summaries, and routine HR questions (standard leave, accommodation templates). Some shift to strategic work, but less dramatic than at firms.',
+        focusEffect: 'Policy drafting and investigations inform each other, but the tasks are less tightly linked than at firms — you could separate them across a small team without severe quality loss. AI makes the department leaner. The CFO captures the efficiency, not you — in-house is a cost center, so the focus effect translates to fewer headcount, not more valuable individuals.',
         demandElasticity: 'In-house employment work is a cost center — the company doesn\'t want more employment law services, it wants fewer employment law problems. Nearly perfectly inelastic.',
         selfServiceResistance: 'HR platforms like Workday, ADP, and BambooHR embed compliance features. Managers use AI to draft PIPs and termination documentation. Routine consultations are eroding.',
         decisionMakerAlignment: 'The CFO and GC jointly determine headcount. Employment counsel is viewed as operationally necessary but not strategic — vulnerable to headcount cuts when AI improves productivity.',
