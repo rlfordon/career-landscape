@@ -34,8 +34,21 @@ export function renderCompare(container, params) {
     profileIds = collectProfileIds(current);
   }
 
+  // Add any custom profiles to the comparison
+  const customProfiles = getCustomProfiles();
+  Object.keys(customProfiles).forEach(id => {
+    if (!profileIds.includes(id)) {
+      profileIds.push(id);
+    }
+  });
+
   // State for this view
   const activeProfiles = new Set(profileIds.slice(0, 3)); // Start with first 3 visible
+
+  // Auto-activate custom profiles
+  Object.keys(customProfiles).forEach(id => {
+    activeProfiles.add(id);
+  });
   const seniorOverlays = new Set();
   let highlightedId = null;
   let colorAssignment = {};
