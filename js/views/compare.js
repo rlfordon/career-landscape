@@ -100,38 +100,45 @@ export function renderCompare(container, params) {
   const chart = createRadarChart({ size: 480 });
   radarColumn.appendChild(chart.svg);
 
-  // Chart reading hint + "About these factors" panel
-  const note = document.createElement('div');
-  note.className = 'radar-note';
-  note.textContent = 'Each axis runs 1–4 from center to edge. Larger shape = stronger positioning against AI displacement.';
-  radarColumn.appendChild(note);
+  // Chart reading hint + "About these factors" link
+  const chartFooter = document.createElement('div');
+  chartFooter.className = 'chart-footer';
+  chartFooter.innerHTML = `
+    <span class="chart-hint">Each axis runs 1–4 from center to edge. Larger shape = stronger positioning against AI displacement.</span>
+    <button class="about-link">About these factors</button>
+  `;
+  radarColumn.appendChild(chartFooter);
 
+  // About panel (hidden by default)
   const aboutPanel = document.createElement('div');
   aboutPanel.className = 'about-factors';
+  aboutPanel.style.display = 'none';
   aboutPanel.innerHTML = `
-    <button class="about-factors-toggle">
-      <span>About these factors</span>
-      <span class="about-factors-arrow">&#9660;</span>
-    </button>
-    <div class="about-factors-body" style="display:none">
-      <p class="about-factors-intro">This tool uses a framework adapted from the <strong>O-Ring model of AI-driven automation</strong> (Gans & Goldfarb 2026, building on Kremer 1993). When tasks are quality complements — each must be done well for the whole to succeed — automating some tasks frees the worker to concentrate on the rest. When all tasks are automated, the worker is displaced entirely. Five factors determine which outcome you get:</p>
+    <div class="about-factors-body">
+      <div class="about-factors-header">
+        <h3 class="about-factors-title">The O-Ring Framework</h3>
+        <button class="about-factors-close">&times;</button>
+      </div>
+      <p class="about-factors-intro">When tasks are quality complements — each must be done well for the whole to succeed — automating some frees the worker to concentrate on the rest. When all tasks are automated, the worker is displaced entirely. Five factors determine which outcome you get:</p>
       <div class="about-factors-grid">
         ${VARIABLES.map(v => `
           <div class="about-factor-item">
-            <div class="about-factor-name"><span class="about-factor-badge">${v.shortLabel}</span>${v.label}</div>
-            <p class="about-factor-desc">${v.explanation}</p>
+            <span class="about-factor-badge">${v.shortLabel}</span>
+            <div>
+              <strong>${v.label}</strong>
+              <p class="about-factor-desc">${v.explanation}</p>
+            </div>
           </div>
         `).join('')}
       </div>
-      <p class="about-factors-source">Framework: ${FRAMEWORK_SOURCE.authors}, "${FRAMEWORK_SOURCE.title}," <em>${FRAMEWORK_SOURCE.publication}</em>, ${FRAMEWORK_SOURCE.year}.</p>
+      <p class="about-factors-source">Source: ${FRAMEWORK_SOURCE.authors}, "${FRAMEWORK_SOURCE.title}," <em>${FRAMEWORK_SOURCE.publication}</em>, ${FRAMEWORK_SOURCE.year}.</p>
     </div>
   `;
-  aboutPanel.querySelector('.about-factors-toggle').onclick = () => {
-    const body = aboutPanel.querySelector('.about-factors-body');
-    const arrow = aboutPanel.querySelector('.about-factors-arrow');
-    const isOpen = body.style.display !== 'none';
-    body.style.display = isOpen ? 'none' : 'block';
-    arrow.innerHTML = isOpen ? '&#9660;' : '&#9650;';
+  chartFooter.querySelector('.about-link').onclick = () => {
+    aboutPanel.style.display = 'block';
+  };
+  aboutPanel.querySelector('.about-factors-close').onclick = () => {
+    aboutPanel.style.display = 'none';
   };
   radarColumn.appendChild(aboutPanel);
 
